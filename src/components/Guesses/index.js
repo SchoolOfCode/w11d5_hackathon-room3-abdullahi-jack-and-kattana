@@ -1,7 +1,15 @@
 import React from "react";
+import Word from "../Word";
 
-function Guesses() {
-  return <div></div>;
+function Guesses({ playerGuesses }) {
+  console.log(playerGuesses);
+  return (
+    <div>
+      {playerGuesses.map((guese, index) => {
+        return <Word guese={guese} index={index} />;
+      })}
+    </div>
+  );
 }
 
 export default Guesses;

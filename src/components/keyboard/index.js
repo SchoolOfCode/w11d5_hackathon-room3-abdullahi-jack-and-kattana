@@ -5,11 +5,7 @@ const topRow = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
 const middleRow = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
 const buttomRow = ["Z", "X", "C", "V", "B", "N", "M"];
 
-function KeyBoard() {
-  function onLetterClick() {}
-  function onEnterClick() {}
-  function onBackSpaceClick() {}
-
+function KeyBoard({ onEnterClick, onLetterClick, onBackSpaceClick }) {
   return (
     <div>
       <div>

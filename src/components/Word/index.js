@@ -1,9 +1,9 @@
 import React from "react";
 import Letter from "../Letter";
 
-function Word({ guese }) {
+function Word({ guese, index }) {
   return (
-    <div>
+    <div id={index}>
       {guese.map((letter) => {
         return <Letter letter={letter} />;
       })}
