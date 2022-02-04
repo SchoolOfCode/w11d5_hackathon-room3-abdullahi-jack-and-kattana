@@ -16,13 +16,22 @@ function App() {
     if (mainState.guesseLetterIndex < 5) {
       dispatch({ type: ACTIONS.ADD_LETTER_TO_PLAYERGUESSES, payload: letter });
     }
-    if (mainState.guesseLetterIndex < 6) {
+    if (mainState.guesseLetterIndex < 5) {
       dispatch({ type: ACTIONS.INCREASE_GUESSE_LETTER_INDEX });
     }
   }
-  function onEnterClick() {}
+  function onEnterClick(e) {
+    console.log(e.target.innerText);
+    console.log(mainState.guesseLetterIndex);
+    console.log(mainState.guesseWordIndex);
+    if (mainState.guesseLetterIndex === 5) {
+      dispatch({ type: ACTIONS.INCREASE_GUESSE_WORD_INDEX });
+      dispatch({ type: ACTIONS.RESET_GUESSE_LETTER_INDEX });
+    }
+  }
   function onBackSpaceClick() {
     if (mainState.guesseLetterIndex < 0) {
+      dispatch({ type: ACTIONS.DELETE_GUESSE_LETTER });
       dispatch({ type: ACTIONS.DECREASE_GUESSE_LETTER_INDEX });
     }
   }
