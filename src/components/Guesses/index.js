@@ -10,6 +10,7 @@ function Guesses({ playerGuesses, guesseResults }) {
       {playerGuesses.map((guesse, index) => {
         return (
           <Word
+            key={index}
             guesseResults={guesseResults[index]}
             guesse={guesse}
             index={index}
