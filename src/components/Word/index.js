@@ -1,11 +1,12 @@
-import React from "react";
+import styles from "./Word.module.css";
 import Letter from "../Letter";
 
-function Word({ guese, index }) {
+function Word({ guesseResults, guesse, index }) {
+    
   return (
-    <div id={index}>
-      {guese.map((letter) => {
-        return <Letter letter={letter} />;
+    <div id={index} className={styles.word}>
+      {guesse.map((letter, index) => {
+        return <Letter letter={letter} result={guesseResults[index]} />;
       })}
     </div>
   );

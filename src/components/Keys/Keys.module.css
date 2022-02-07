@@ -1,0 +1,60 @@
+.key {
+  width: 43.1px;
+  font-size: 1rem;
+  margin: 1.5px;
+}
+.standard {
+  background-color: #818384;
+  border: none;
+  border-radius: 4px;
+}
+
+.Green {
+  background-color: #538d4e;
+  border: none;
+  border-radius: 4px;
+}
+
+.Orange {
+  background-color: #b59f3b;
+  border: none;
+  border-radius: 4px;
+}
+.Grey {
+  background-color: #3a3a3c;
+  border: none;
+  border-radius: 4px;
+}
+.topRow {
+  height: 100%;
+  width: 11.11%;
+}
+.middleRow {
+  height: 100%;
+  width: 11.11%;
+}
+.buttomRow {
+  height: 100%;
+  width: 11.11%;
+}
+.enter {
+  width: 86.36px;
+  height: 100%;
+}
+.backSpace {
+  width: 86.36px;
+  height: 100%;
+}
+@media only screen and (max-width: 450px) {
+  .key {
+    width: 30px;
+    font-size: 1rem;
+    margin: 3px;
+  }
+  .enter {
+    width: 60px;
+  }
+  .backSpace {
+    width: 50px;
+  }
+}

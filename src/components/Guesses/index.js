@@ -1,12 +1,20 @@
 import React from "react";
 import Word from "../Word";
+import styles from "./Guesses.module.css";
 
-function Guesses({ playerGuesses }) {
+function Guesses({ playerGuesses, guesseResults }) {
+  console.log(guesseResults);
   console.log(playerGuesses);
   return (
-    <div>
-      {playerGuesses.map((guese, index) => {
-        return <Word guese={guese} index={index} />;
+    <div className={styles.board}>
+      {playerGuesses.map((guesse, index) => {
+        return (
+          <Word
+            guesseResults={guesseResults[index]}
+            guesse={guesse}
+            index={index}
+          />
+        );
       })}
     </div>
   );

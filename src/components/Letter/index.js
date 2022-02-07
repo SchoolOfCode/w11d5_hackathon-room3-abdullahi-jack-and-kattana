@@ -1,9 +1,21 @@
-import React from 'react';
+import styles from "./Letter.module.css";
 
-function Letter({letter}) {
-  return <div>
-    {letter}
-  </div>;
+function Letter({ letter, result }) {
+  return (
+    <div
+      className={
+        result.color === "green"
+          ? `${styles.letter} ${styles.Green}`
+          : result.color === "orange"
+          ? `${styles.letter} ${styles.Orange}`
+          : result.color === "grey"
+          ? `${styles.letter} ${styles.Grey}`
+          : `${styles.letter} ${styles.Black}`
+      }
+    >
+      {letter}
+    </div>
+  );
 }
 
 export default Letter;
