@@ -3,11 +3,11 @@ import styles from "./Keys.module.css";
 function Key({ keyClass, guesseResults, letter, handleClick }) {
   let status;
 
-  guesseResults?.foreach((row) => {
-    row?.foreach((guessedLetter) => {
+  guesseResults?.forEach((row) => {
+    row?.forEach((guessedLetter) => {
       if (guessedLetter.letter === letter) {
-        console.log(guessedLetter);
         status = guessedLetter.status;
+        return status;
       }
     });
   });

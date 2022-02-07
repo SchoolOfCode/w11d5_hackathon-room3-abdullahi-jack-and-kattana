@@ -14,11 +14,9 @@ import {
 function App() {
   const [mainState, dispatch] = useReducer(mainStateReducer, initialMainState);
   const [isModalVisible, setIsModalVisible] = useState(false);
-  console.log(mainState.correctAnswer);
 
   useEffect(() => {
     if (mainState.gameStatus === "complete") {
-      console.log("game is complete");
       setIsModalVisible(true);
     }
   }, [mainState.gameStatus]);
