@@ -3,8 +3,8 @@ import styles from "./Keys.module.css";
 function Key({ keyClass, guesseResults, letter, handleClick }) {
   let status;
 
-  guesseResults?.map((row) => {
-    row?.map((guessedLetter) => {
+  guesseResults?.foreach((row) => {
+    row?.foreach((guessedLetter) => {
       if (guessedLetter.letter === letter) {
         console.log(guessedLetter);
         status = guessedLetter.status;
