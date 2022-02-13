@@ -1,5 +1,5 @@
 import { possibleWord } from "../../data";
-const randomIndex = Math.floor(Math.random() * 12973);
+const randomIndex = Math.floor(Math.random() * 2309);
 
 export const ACTIONS = {
   ADD_LETTER_TO_PLAYERGUESSES: "ADD_LETTER_TO_PLAYERGUESSES",
@@ -9,6 +9,8 @@ export const ACTIONS = {
   RESET_GUESSE_LETTER_INDEX: "RESET_GUESSE_LETTER_INDEX",
   DELETE_GUESSE_LETTER: "DELETE_GUESSE_LETTER",
   COMPARE_GUESSE: "COMPARE_GUESSE",
+  CHECK_WORD_IS_IN_WORDLIST: "CHECK_WORD_IS_IN_WORDLIST",
+  RESET_IS_WORD_IN_LIST: "RESET_IS_WORD_IN_LIST",
 };
 
 export const initialMainState = {
@@ -105,6 +107,7 @@ export const initialMainState = {
     ],
   },
   gameStatus: "",
+  isWordInList: "",
 };
 
 export function mainStateReducer(state, action) {
@@ -156,7 +159,10 @@ export function mainStateReducer(state, action) {
       }, 0);
       let gameStat = "";
       if (matchesTotal === 5 || state.guesseWordIndex === 6) {
-        gameStat = "complete";
+        gameStat = "won";
+      }
+      if (state.guesseWordIndex === 6 && matchesTotal !== 5) {
+        gameStat = "lost";
       }
 
       return {
@@ -168,6 +174,26 @@ export function mainStateReducer(state, action) {
         ],
         gameStatus: gameStat,
       };
+    case ACTIONS.CHECK_WORD_IS_IN_WORDLIST:
+      console.log(
+        state.playerGuesses[state.guesseWordIndex].join("").toLowerCase()
+      );
+      console.log(
+        possibleWord.includes(
+          state.playerGuesses[state.guesseWordIndex].join("").toLowerCase()
+        )
+      );
+      if (
+        possibleWord.includes(
+          state.playerGuesses[state.guesseWordIndex].join("").toLowerCase()
+        )
+      ) {
+        return { ...state, isWordInList: true };
+      }
+      return { ...state, isWordInList: false };
+
+    case ACTIONS.RESET_IS_WORD_IN_LIST:
+      return { ...state, isWordInList: "" };
     default:
       return state;
   }
