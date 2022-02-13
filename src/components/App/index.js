@@ -20,7 +20,7 @@ function App() {
       setIsModalVisible(true);
     }
   }, [mainState.gameStatus]);
-  console.log(mainState);
+
   function onLetterClick(e) {
     const letter = e.target.innerText;
 
@@ -34,29 +34,24 @@ function App() {
   function onEnterClick(e) {
     if (mainState.guesseLetterIndex === 5) {
       dispatch({ type: ACTIONS.CHECK_WORD_IS_IN_WORDLIST });
-      // if (!mainState.isWordInList) {
-      //   console.log(mainState.isWordInList);
-      //   alert("That word is not in our word list");
-      //   return;
-      // }
     }
   }
   useEffect(() => {
-    console.log("here1", mainState.guesseLetterIndex);
-    if (mainState.guesseLetterIndex === 5) {
-      console.log("here2");
+    console.log(mainState.guesseLetterIndex, mainState.isWordInList);
+    if (mainState.guesseLetterIndex === 5 && mainState.isWordInList !== "") {
       if (mainState.isWordInList) {
         dispatch({ type: ACTIONS.INCREASE_GUESSE_WORD_INDEX });
         dispatch({ type: ACTIONS.RESET_GUESSE_LETTER_INDEX });
         dispatch({ type: ACTIONS.COMPARE_GUESSE });
         dispatch({ type: ACTIONS.RESET_IS_WORD_IN_LIST });
       } else {
-        console.log(mainState.isWordInList);
-        alert("That word is not in our word list");
+        alert(
+          "That word doesnt seem to appear in our world list try somthing else"
+        );
         dispatch({ type: ACTIONS.RESET_IS_WORD_IN_LIST });
       }
     }
-  }, [mainState.isWordInList]);
+  }, [mainState.isWordInList, mainState.guesseLetterIndex]);
   function onBackSpaceClick() {
     if (mainState.guesseLetterIndex > 0) {
       dispatch({ type: ACTIONS.DECREASE_GUESSE_LETTER_INDEX });
@@ -72,18 +67,21 @@ function App() {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+  window.localStorage.setItem("answer", mainState.correctAnswer.join(""));
   return (
     <div className={styles.app}>
       <Modal
-        title="Basic Modal"
+        title={mainState.gameStatus === "won" ? "🎉Congrats🎉" : "Oh no!😞"}
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        {mainState.gameStatus === "won" && <p>Congrats</p>}
+        {mainState.gameStatus === "won" && (
+          <p>🎉Congrats🎉 you got the right answer🎊🎊🎊 </p>
+        )}
         {mainState.gameStatus === "lost" && (
           <p>
-            oh no! the word you were looking for was {mainState.correctAnswer}
+            Oh no!😞 the word you were looking for was {mainState.correctAnswer}
             <br />
             better luck next game
           </p>

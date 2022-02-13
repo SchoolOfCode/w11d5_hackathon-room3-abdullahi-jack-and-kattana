@@ -14,7 +14,6 @@ function Key({ keyClass, guesseResults, letter, handleClick }) {
 
   return (
     <button
-      disabled={status === "wrong" ? true : false}
       className={
         status === "correctRightPlace"
           ? `${styles.key} ${styles[keyClass]} ${styles.Green}`

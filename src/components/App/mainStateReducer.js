@@ -175,14 +175,6 @@ export function mainStateReducer(state, action) {
         gameStatus: gameStat,
       };
     case ACTIONS.CHECK_WORD_IS_IN_WORDLIST:
-      console.log(
-        state.playerGuesses[state.guesseWordIndex].join("").toLowerCase()
-      );
-      console.log(
-        possibleWord.includes(
-          state.playerGuesses[state.guesseWordIndex].join("").toLowerCase()
-        )
-      );
       if (
         possibleWord.includes(
           state.playerGuesses[state.guesseWordIndex].join("").toLowerCase()
