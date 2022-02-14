@@ -1,0 +1,26 @@
+.letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 1/6;
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid #3a3a3c;
+  font-size: 2rem;
+  color: white;
+}
+
+.Green {
+  background-color: #538d4e;
+}
+
+.Orange {
+  background-color: #b59f3b;
+}
+.Grey {
+  background-color: #3a3a3c;
+}
+.Black {
+  background-color: #121213;
+}

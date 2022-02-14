@@ -1,0 +1,62 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 30vh;
+  width: 600px;
+}
+.topRow {
+  margin: 0 auto 2px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 33.33%;
+  width: 100%;
+}
+.middleRow {
+  margin: 0 auto 2px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 33.33%;
+  width: 90%;
+}
+.buttomRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 33.33%;
+  width: 100%;
+}
+
+@media only screen and (max-width: 400px) {
+  .keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 20vh;
+    width: 390px;
+    margin-bottom: auto;
+  }
+  .topRow {
+    display: flex;
+    justify-content: center;
+
+    height: 33.33%;
+    width: 100%;
+  }
+  .middleRow {
+    display: flex;
+    justify-content: center;
+    height: 33.33%;
+    width: 100%;
+  }
+  .buttomRow {
+    display: flex;
+    justify-content: center;
+    height: 33.33%;
+    width: 100%;
+  }
+}

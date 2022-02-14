@@ -1,0 +1,11 @@
+.header {
+  width: 100vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  background-color: #121213;
+}
+h1 {
+  color: white;
+}
